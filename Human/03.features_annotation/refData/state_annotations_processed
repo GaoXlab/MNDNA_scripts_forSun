@@ -1,0 +1,101 @@
+state	mneumonics	Group
+1	Quies1	quescient
+2	Quies2	quescient
+3	HET1	HET
+4	HET2	HET
+5	Acet1	acetylations
+6	Acet2	acetylations
+7	Acet3	acetylations
+8	Acet4	acetylations
+9	Acet5	acetylations
+10	Acet6	acetylations
+11	Acet7	acetylations
+12	EnhA1	enhancers
+13	EnhA2	enhancers
+14	EnhA3	enhancers
+15	EnhA4	enhancers
+16	EnhA5	enhancers
+17	EnhWk1	weak enhancers
+18	TxEnh1	transcribed and enhancer
+19	TxEnh2	transcribed and enhancer
+20	Tx1	transcription
+21	Tx2	transcription
+22	Tx3	transcription
+23	TxEnh3	transcribed and enhancer
+24	Tx4	transcription
+25	TxEx1	exon
+26	TxEx2	exon
+27	TxEx3	exon
+28	Tx5	transcription
+29	TxWk1	weak transcription
+30	Tx6	transcription
+31	Tx7	transcription
+32	Tx8	transcription
+33	TxEnh4	transcribed and enhancer
+34	TxEnh5	transcribed and enhancer
+35	TxWk2	weak transcription
+36	TxEnh6	transcribed and enhancer
+37	TxEx4	exon
+38	TxEnh7	transcribed and enhancer
+39	EnhWk2	weak enhancers
+40	EnhWk3	weak enhancers
+41	EnhWk4	weak enhancers
+42	EnhA6	enhancers
+43	PromF1	promoters
+44	PromF2	promoters
+45	PromF3	promoters
+46	PromF4	promoters
+47	TSS1	TSS
+48	TSS2	TSS
+49	PromF5	promoters
+50	BivProm1	bivalent promoters
+51	BivProm2	bivalent promoters
+52	BivProm3	bivalent promoters
+53	ReprPC1	polycomb repressed
+54	ReprPC2	polycomb repressed
+55	ReprPC3	polycomb repressed
+56	ReprPC4	polycomb repressed
+57	ReprPC5	polycomb repressed
+58	ReprPC6	polycomb repressed
+59	ReprPC7	polycomb repressed
+60	EnhA7	enhancers
+61	EnhWk5	weak enhancers
+62	EnhWk6	weak enhancers
+63	EnhA8	enhancers
+64	EnhA9	enhancers
+65	EnhA10	enhancers
+66	EnhA11	enhancers
+67	EnhWk7	weak enhancers
+68	Quies3	quescient
+69	GapArtf1	others
+70	Quies4	quescient
+71	HET3	HET
+72	HET4	HET
+73	HET5	HET
+74	HET6	HET
+75	HET7	HET
+76	HET8	HET
+77	GapArtf2	others
+78	GapArtf3	others
+79	HET9	HET
+80	znf1	znf
+81	znf2	znf
+82	TxEnh8	transcribed and enhancer
+83	EnhA12	enhancers
+84	EnhA13	enhancers
+85	EnhA14	enhancers
+86	EnhA15	enhancers
+87	EnhA16	enhancers
+88	DNase1	DNase
+89	EnhA17	enhancers
+90	EnhWk8	weak enhancers
+91	EnhA18	enhancers
+92	EnhA19	enhancers
+93	Acet8	acetylations
+94	ReprPC8	polycomb repressed
+95	Quies5	quescient
+96	ReprPC9	polycomb repressed
+97	BivProm4	bivalent promoters
+98	PromF6	promoters
+99	PromF7	promoters
+100	EnhA20	enhancers

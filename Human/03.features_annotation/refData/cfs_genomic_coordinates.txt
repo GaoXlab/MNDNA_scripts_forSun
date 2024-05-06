@@ -1,0 +1,118 @@
+chr	start	end	chrlocation	Type	Symbol	Name	ID	URL	Locus type	status
+chr1	0	27600000	1p36	gene	FRA1A	fragile site, aphidicolin type, common, fra(1)(p36)	HGNC:3868	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3868	Fragile site	Approved
+chr1	50200000	60800000	1p32	gene	FRA1B	fragile site, aphidicolin type, common, fra(1)(p32)	HGNC:3869	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3869	Fragile site	Approved
+chr1	84400000	94300000	1p22	gene	FRA1D	fragile site, aphidicolin type, common, fra(1)(p22)	HGNC:3871	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3871	Fragile site	Approved
+chr1	143200000	155100000	1q21	gene	FRA1F	fragile site, aphidicolin type, common, fra(1)(q21)	HGNC:3873	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3873	Fragile site	Approved
+chr1	243500000	248956422	1q44	gene	FRA1I	fragile site, aphidicolin type, common, fra(1)(q44)	HGNC:3876	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3876	Fragile site	Approved
+chr1	185800000	198700000	1q31	gene	FRA1K	fragile site, aphidicolin type, common, fra(1)(q31)	HGNC:3878	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3878	Fragile site	Approved
+chr1	60800000	84400000	1p31	gene	FRA1L	fragile site, aphidicolin type, common, fra(1)(p31)	HGNC:3879	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3879	Fragile site	Approved
+chr2	68400000	74800000	2p13	gene	FRA2E	fragile site, aphidicolin type, common, fra(2)(p13)	HGNC:3889	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3889	Fragile site	Approved
+chr2	168900000	182100000	2q31	gene	FRA2G	fragile site, aphidicolin type, common, fra(2)(q31)	HGNC:3891	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3891	Fragile site	Approved
+chr2	196600000	208200000	2q33	gene	FRA2I	fragile site, aphidicolin type, common, fra(2)(q33)	HGNC:3893	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3893	Fragile site	Approved
+chr3	183000000	188200000	3q27	gene	FRA3C	fragile site, aphidicolin type, common, fra(3)(q27)	HGNC:3898	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3898	Fragile site	Approved
+chr3	149200000	161000000	3q25	gene	FRA3D	fragile site, aphidicolin type, common, fra(3)(q25)	HGNC:3899	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3899	Fragile site	Approved
+chr4	51800000	58500000	4q12	gene	FRA4B	fragile site, BrdU type, common, fra(4)(q12)	HGNC:3901	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3901	Fragile site	Approved
+chr4	11300000	35800000	4p15	gene	FRA4D	fragile site, aphidicolin type, common, fra(4)(p15)	HGNC:3903	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3903	Fragile site	Approved
+chr5	28900000	42500000	5p13	gene	FRA5A	fragile site, BrdU type, common, fra(5)(p13)	HGNC:3905	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3905	Fragile site	Approved
+chr5	93000000	98900000	5q15	gene	FRA5B	fragile site, BrdU type, common, fra(5)(q15)	HGNC:3906	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3906	Fragile site	Approved
+chr5	93000000	98900000	5q15	gene	FRA5D	fragile site, aphidicolin type, common, fra(5)(q15)	HGNC:3908	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3908	Fragile site	Approved
+chr5	18400000	28900000	5p14	gene	FRA5E	fragile site, aphidicolin type, common, fra(5)(p14)	HGNC:3909	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3909	Fragile site	Approved
+chr5	98900000	110200000	5q21	gene	FRA5F	fragile site, aphidicolin type, common, fra(5)(q21)	HGNC:3910	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3910	Fragile site	Approved
+chr6	69200000	75200000	6q13	gene	FRA6D	fragile site, BrdU type, common, fra(6)(q13)	HGNC:3915	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3915	Fragile site	Approved
+chr6	160600000	164100000	6q26	gene	FRA6E	fragile site, aphidicolin type, common, fra(6)(q26)	HGNC:3916	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3916	Fragile site	Approved
+chr6	105000000	114200000	6q21	gene	FRA6F	fragile site, aphidicolin type, common, fra(6)(q21)	HGNC:3917	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3917	Fragile site	Approved
+chr6	87300000	92500000	6q15	gene	FRA6G	fragile site, aphidicolin type, common, fra(6)(q15)	HGNC:3918	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3918	Fragile site	Approved
+chr7	0	7200000	7p22	gene	FRA7B	fragile site, aphidicolin type, common, fra(7)(p22)	HGNC:3920	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3920	Fragile site	Approved
+chr7	43300000	45400000	7p13	gene	FRA7D	fragile site, aphidicolin type, common, fra(7)(p13)	HGNC:3922	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3922	Fragile site	Approved
+chr7	98400000	107800000	7q22	gene	FRA7F	fragile site, aphidicolin type, common, fra(7)(q22)	HGNC:3924	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3924	Fragile site	Approved
+chr7	148200000	159345973	7q36	gene	FRA7I	fragile site, aphidicolin type, common, fra(7)(q36)	HGNC:3927	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3927	Fragile site	Approved
+chr7	60100000	77900000	7q11	gene	FRA7J	fragile site, aphidicolin type, common, fra(7)(q11)	HGNC:3928	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3928	Fragile site	Approved
+chr9	19900000	33200000	9p21	gene	FRA9C	fragile site, BrdU type, common, fra(9)(p21)	HGNC:3937	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3937	Fragile site	Approved
+chr9	112100000	114900000	9q32	gene	FRA9E	fragile site, aphidicolin type, common, fra(9)(q32)	HGNC:3939	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3939	Fragile site	Approved
+chr10	51100000	68800000	10q21	gene	FRA10C	fragile site, BrdU type, common, fra(10)(q21)	HGNC:3831	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3831	Fragile site	Approved
+chr11	31000000	36400000	11p13	gene	FRA11E	fragile site, aphidicolin type, common, fra(11)(p13)	HGNC:3840	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3840	Fragile site	Approved
+chr11	63600000	77400000	11q13	gene	FRA11H	fragile site, aphidicolin type, common, fra(11)(q13)	HGNC:3843	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3843	Fragile site	Approved
+chr12	108600000	133275309	12q24	gene	FRA12E	fragile site, aphidicolin type, common, fra(12)(q24)	HGNC:3849	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3849	Fragile site	Approved
+chr13	54700000	72800000	13q21	gene	FRA13B	fragile site, BrdU type, common, fra(13)(q21)	HGNC:3851	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3851	Fragile site	Approved
+chr13	94400000	101100000	13q32	gene	FRA13D	fragile site, aphidicolin type, common, fra(13)(q32)	HGNC:3853	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3853	Fragile site	Approved
+chr14	57600000	67400000	14q23	gene	FRA14B	fragile site, aphidicolin type, common, fra(14)(q23)	HGNC:3854	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3854	Fragile site	Approved
+chr15	58800000	67200000	15q22	gene	FRA15A	fragile site, aphidicolin type, common, fra(15)(q22)	HGNC:3856	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3856	Fragile site	Approved
+chr1	68500000	69300000	1p31.2	gene	FRA1C	fragile site, aphidicolin type, common, fra(1)(p31.2)	HGNC:3870	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3870	Fragile site	Approved
+chr1	99300000	101800000	1p21.2	gene	FRA1E	fragile site, aphidicolin type, common, fra(1)(p21.2)	HGNC:3872	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3872	Fragile site	Approved
+chr1	173000000	176100000	1q25.1	gene	FRA1G	fragile site, aphidicolin type, common, fra(1)(q25.1)	HGNC:3874	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3874	Fragile site	Approved
+chr1	223900000	236400000	1q42	gene	FRA1H	fragile site, 5-azacytidine type, common, fra(1)(q42)	HGNC:3875	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3875	Fragile site	Approved
+chr1	125100000	143200000	1q12	gene	FRA1J	fragile site, 5-azacytidine type, common, fra(1)(q12)	HGNC:3877	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3877	Fragile site	Approved
+chr2	108700000	112200000	2q13	gene	FRA2B	fragile site, folic acid type, rare, fra(2)(q13)	HGNC:3886	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3886	Fragile site	Approved
+chr2	16500000	19000000	2p24.2	gene	FRA2C	fragile site, aphidicolin type, common, fra(2)(p24.2)	HGNC:3887	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3887	Fragile site	Approved
+chr2	52600000	54700000	2p16.2	gene	FRA2D	fragile site, aphidicolin type, common, fra(2)(p16.2)	HGNC:3888	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3888	Fragile site	Approved
+chr2	134300000	136100000	2q21.3	gene	FRA2F	fragile site, aphidicolin type, common, fra(2)(q21.3)	HGNC:3890	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3890	Fragile site	Approved
+chr2	182100000	188500000	2q32.1	gene	FRA2H	fragile site, aphidicolin type, common, fra(2)(q32.1)	HGNC:3892	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3892	Fragile site	Approved
+chr2	236400000	242193529	2q37.3	gene	FRA2J	fragile site, aphidicolin type, common, fra(2)(q37.3)	HGNC:3894	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3894	Fragile site	Approved
+chr3	23800000	26300000	3p24.2	gene	FRA3A	fragile site, aphidicolin type, common, fra(3)(p24.2)	HGNC:3896	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3896	Fragile site	Approved
+chr3	58600000	63800000	3p14.2	gene	FRA3B	fragile site, aphidicolin type, common, fra(3)(p14.2)	HGNC:3897	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3897	Fragile site	Approved
+chr4	6000000	11300000	4p16.1	gene	FRA4A	fragile site, aphidicolin type, common, fra(4)(p16.1)	HGNC:3900	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3900	Fragile site	Approved
+chr4	138500000	140600000	4q31.1	gene	FRA4C	fragile site, aphidicolin type, common, fra(4)(q31.1)	HGNC:3902	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3902	Fragile site	Approved
+chr5	131200000	136900000	5q31.1	gene	FRA5C	fragile site, aphidicolin type, common, fra(5)(q31.1)	HGNC:3907	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3907	Fragile site	Approved
+chr5	169000000	181538259	5q35	gene	FRA5G	fragile site, folic acid type, rare, fra(5)(q35)	HGNC:3911	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3911	Fragile site	Approved
+chr6	13400000	15200000	6p23	gene	FRA6A	fragile site, folic acid type, rare, fra(6)(p23)	HGNC:3912	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3912	Fragile site	Approved
+chr6	4200000	7100000	6p25.1	gene	FRA6B	fragile site, aphidicolin type, common, fra(6)(p25.1)	HGNC:3913	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3913	Fragile site	Approved
+chr6	25200000	27100000	6p22.2	gene	FRA6C	fragile site, aphidicolin type, common, fra(6)(p22.2)	HGNC:3914	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3914	Fragile site	Approved
+chr7	34900000	37100000	7p14.2	gene	FRA7C	fragile site, aphidicolin type, common, fra(7)(p14.2)	HGNC:3921	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3921	Fragile site	Approved
+chr7	91500000	93300000	7q21.2	gene	FRA7E	fragile site, aphidicolin type, common, fra(7)(q21.2)	HGNC:3923	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3923	Fragile site	Approved
+chr7	115000000	117700000	7q31.2	gene	FRA7G	fragile site, aphidicolin type, common, fra(7)(q31.2)	HGNC:3925	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3925	Fragile site	Approved
+chr7	130800000	132900000	7q32.3	gene	FRA7H	fragile site, aphidicolin type, common, fra(7)(q32.3)	HGNC:3926	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3926	Fragile site	Approved
+chr8	92300000	97900000	8q22.1	gene	FRA8B	fragile site, aphidicolin type, common, fra(8)(q22.1)	HGNC:3930	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3930	Fragile site	Approved
+chr8	116700000	126300000	8q24.1	gene	FRA8C	fragile site, aphidicolin type, common, fra(8)(q24.1)	HGNC:3931	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3931	Fragile site	Approved
+chr8	138900000	145138636	8q24.3	gene	FRA8D	fragile site, aphidicolin type, common, fra(8)(q24.3)	HGNC:3932	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3932	Fragile site	Approved
+chr9	19900000	33200000	9p21	gene	FRA9A	fragile site, folic acid type, rare, fra(9)(p21)	HGNC:3935	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3935	Fragile site	Approved
+chr9	112100000	114900000	9q32	gene	FRA9B	fragile site, folic acid type, rare, fra(9)(q32)	HGNC:3936	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3936	Fragile site	Approved
+chr9	87800000	89200000	9q22.1	gene	FRA9D	fragile site, aphidicolin type, common, fra(9)(q22.1)	HGNC:3938	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3938	Fragile site	Approved
+chr9	45500000	61500000	9q12	gene	FRA9F	fragile site, 5-azacytidine type, common, fra(9)(q12)	HGNC:3940	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3940	Fragile site	Approved
+chr10	110100000	113100000	10q25.2	gene	FRA10B	fragile site, BrdU type, rare, fra(10)(q25.2)	HGNC:3830	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3830	Fragile site	Approved
+chr10	68800000	73100000	10q22.1	gene	FRA10D	fragile site, aphidicolin type, common, fra(10)(q22.1)	HGNC:3832	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3832	Fragile site	Approved
+chr10	110100000	113100000	10q25.2	gene	FRA10E	fragile site, aphidicolin type, common, fra(10)(q25.2)	HGNC:3833	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3833	Fragile site	Approved
+chr10	117300000	125700000	10q26.1	gene	FRA10F	fragile site, aphidicolin type, common, fra(10)(q26.1)	HGNC:3834	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3834	Fragile site	Approved
+chr10	41600000	51100000	10q11.2	gene	FRA10G	fragile site, aphidicolin type, common, fra(10)(q11.2)	HGNC:3835	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3835	Fragile site	Approved
+chr11	16900000	22000000	11p15.1	gene	FRA11C	fragile site, aphidicolin type, common, fra(11)(p15.1)	HGNC:3838	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3838	Fragile site	Approved
+chr11	26200000	27200000	11p14.2	gene	FRA11D	fragile site, aphidicolin type, common, fra(11)(p14.2)	HGNC:3839	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3839	Fragile site	Approved
+chr11	85900000	88600000	11q14.2	gene	FRA11F	fragile site, aphidicolin type, common, fra(11)(q14.2)	HGNC:3841	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3841	Fragile site	Approved
+chr11	114600000	121300000	11q23.3	gene	FRA11G	fragile site, aphidicolin type, common, fra(11)(q23.3)	HGNC:3842	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3842	Fragile site	Approved
+chr12	79900000	92200000	12q21.3	gene	FRA12B	fragile site, aphidicolin type, common, fra(12)(q21.3)	HGNC:3846	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3846	Fragile site	Approved
+chr12	113900000	120300000	12q24.2	gene	FRA12C	fragile site, BrdU type, rare, fra(12)(q24.2)	HGNC:3847	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3847	Fragile site	Approved
+chr13	33400000	34900000	13q13.2	gene	FRA13A	fragile site, aphidicolin type, common, fra(13)(q13.2)	HGNC:3850	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3850	Fragile site	Approved
+chr13	59000000	61800000	13q21.2	gene	FRA13C	fragile site, aphidicolin type, common, fra(13)(q21.2)	HGNC:3852	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3852	Fragile site	Approved
+chr14	67400000	69800000	14q24.1	gene	FRA14C	fragile site, aphidicolin type, common, fra(14)(q24.1)	HGNC:3855	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3855	Fragile site	Approved
+chr16	66600000	70800000	16q22.1	gene	FRA16C	fragile site, aphidicolin type, common, fra(16)(q22.1)	HGNC:3859	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3859	Fragile site	Approved
+chr16	79200000	81600000	16q23.2	gene	FRA16D	fragile site, aphidicolin type, common, fra(16)(q23.2)	HGNC:3860	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3860	Fragile site	Approved
+chr17	10800000	16100000	17p12	gene	FRA17A	fragile site, distamycin A type, rare, fra(17)(p12)	HGNC:3862	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3862	Fragile site	Approved
+chr17	59500000	60200000	17q23.1	gene	FRA17B	fragile site, aphidicolin type, common, fra(17)(q23.1)	HGNC:3863	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3863	Fragile site	Approved
+chr18	35100000	39500000	18q12.2	gene	FRA18A	fragile site, aphidicolin type, common, fra(18)(q12.2)	HGNC:3864	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3864	Fragile site	Approved
+chr18	56200000	63900000	18q21.3	gene	FRA18B	fragile site, aphidicolin type, common, fra(18)(q21.3)	HGNC:3865	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3865	Fragile site	Approved
+chr18	69100000	71000000	18q22.2	gene	FRA18C	fragile site, aphidicolin type, common, fra(18)(q22.2)	HGNC:16929	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:16929	Fragile site	Approved
+chr19	31900000	58617616	19q13	gene	FRA19A	fragile site, 5-azacytidine type, common, fra(19)(q13)	HGNC:3866	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3866	Fragile site	Approved
+chr19	0	19900000	19p13	gene	FRA19B	fragile site, folic acid type, rare, fra(19)(p13)	HGNC:3867	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3867	Fragile site	Approved
+chr20	9200000	12000000	20p12.2	gene	FRA20B	fragile site, aphidicolin type, common, fra(20)(p12.2)	HGNC:3882	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3882	Fragile site	Approved
+chr22	37200000	50818468	22q13	gene	FRA22A	fragile site, folic acid type, rare, fra(22)(q13)	HGNC:3883	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3883	Fragile site	Approved
+chr22	29200000	31800000	22q12.2	gene	FRA22B	fragile site, aphidicolin type, common, fra(22)(q12.2)	HGNC:3884	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3884	Fragile site	Approved
+chr1	94300000	99300000	1p21.3	gene	FRA1M	fragile site, folic acid type, rare, fra(1)(p21.3)	HGNC:3880	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3880	Fragile site	Approved
+chr2	96000000	102100000	2q11.2	gene	FRA2A	fragile site, folic acid type, rare, fra(2)(q11.2)	HGNC:3885	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3885	Fragile site	Approved
+chr2	143400000	147900000	2q22.3	gene	FRA2K	fragile site, folic acid type, rare, fra(2)(q22.3)	HGNC:3895	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3895	Fragile site	Approved
+chr7	53900000	58100000	7p11.2	gene	FRA7A	fragile site, folic acid type, rare, fra(7)(p11.2)	HGNC:3919	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3919	Fragile site	Approved
+chr8	100500000	105100000	8q22.3	gene	FRA8A	fragile site, folic acid type, rare, fra(8)(q22.3)	HGNC:3929	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3929	Fragile site	Approved
+chr8	116700000	126300000	8q24.1	gene	FRA8E	fragile site, distamycin A type, rare, fra(8)(q24.1)	HGNC:3933	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3933	Fragile site	Approved
+chr11	68700000	70500000	11q13.3	gene	FRA11A	fragile site, folic acid type, rare, fra(11)(q13.3)	HGNC:3836	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3836	Fragile site	Approved
+chr11	114600000	121300000	11q23.3	gene	FRA11B	fragile site, folic acid type, rare, fra(11)(q23.3)	HGNC:3837	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3837	Fragile site	Approved
+chr11	16900000	22000000	11p15.1	gene	FRA11I	fragile site, distamycin A type, rare, fra(11)(p15.1)	HGNC:3844	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3844	Fragile site	Approved
+chr12	46000000	54500000	12q13.1	gene	FRA12A	fragile site, folic acid type, rare, fra(12)(q13.1)	HGNC:3845	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3845	Fragile site	Approved
+chr12	111900000	113900000	12q24.13	gene	FRA12D	fragile site, folic acid type, rare, fra(12)(q24.13)	HGNC:3848	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3848	Fragile site	Approved
+chr16	14700000	16700000	16p13.11	gene	FRA16A	fragile site, folic acid type, rare, fra(16)(p13.11)	HGNC:3857	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3857	Fragile site	Approved
+chr16	66600000	70800000	16q22.1	gene	FRA16B	fragile site, distamycin A type, rare, fra(16)(q22.1)	HGNC:3858	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3858	Fragile site	Approved
+chr16	24200000	28500000	16p12.1	gene	FRA16E	fragile site, distamycin A type, rare, fra(16)(p12.1)	HGNC:3861	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3861	Fragile site	Approved
+chr20	17900000	21300000	20p11.23	gene	FRA20A	fragile site, folic acid type, rare, fra(20)(p11.23)	HGNC:3881	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3881	Fragile site	Approved
+chrX	6100000	9600000	Xp22.31	gene	FRAXB	fragile site, aphidicolin type, common, fra(X)(p22.31) B	HGNC:3946	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3946	Fragile site	Approved
+chrX	99100000	103300000	Xq22.1	gene	FRAXC	fragile site, aphidicolin type, common, fra(X)(q22.1) C	HGNC:3947	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3947	Fragile site	Approved
+chrX	141200000	143000000	Xq27.2	gene	FRAXD	fragile site, aphidicolin type, common, fra(X)(q27.2) D	HGNC:3948	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3948	Fragile site	Approved
+chrX	148000000	156040895	Xq28	gene	FRAXE	fragile site, folic acid type, rare, fra(X)(q28) E	HGNC:3949	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3949	Fragile site	Approved
+chrX	143000000	148000000	Xq27.3	gene	FRAXA	fragile site, folic acid type, rare, fra(X)(q27.3) A	HGNC:3945	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3945	Fragile site	Approved
+chr10	97500000	100100000	10q24.2	gene	FRA10A	fragile site, folic acid type, rare, fra(10)(q24.2)	HGNC:3829	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3829	Fragile site	Approved
+chr10	87700000	95300000	10q23.3	gene	FRA10A	fragile site, folic acid type, rare, fra(10)(q23.3)	HGNC:3829	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:3829	Fragile site	Approved
