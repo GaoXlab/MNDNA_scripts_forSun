@@ -6,7 +6,6 @@ then
   BAM_EXT=nodup.bam
   Q30_EXT=nodup.q30.bam
   TDF_EXT=nodup.q30.tdf
-  COV_EXT=cov.log
 else
   GENOME_DIR=/mnt/sfs-genome/mm10
   GENOME_NAME=mm10
@@ -14,7 +13,6 @@ else
   BAM_EXT=mm10.nodup.bam
   Q30_EXT=mm10.nodup.q30.bam
   TDF_EXT=mm10.nodup.q30.tdf
-  COV_EXT=cov.mus.log
 fi
 
 
@@ -62,19 +60,6 @@ then
 else
   echo "[跳过] bwa mem"
 fi
-
-bwaAnalysis() {
-    if [ ! -f all."$SAMPLE_NAME".bwa.raw.sam.summary ]
-    then
-      echo "[并行执行] 并行生成bwa.raw.sam.summary文件 （kfc bwa analysis）"
-      cat "$SAMPLE_NAME".bwa.raw.sam | /mnt/sfs-data/hjl/bwa_analysis/script/1.2.0/bwa_analysis_V1.2.0 "$SAMPLE_NAME".bwa.raw.sam 100 > /dev/null 2>&1 \
-      && echo '[并行执行完成] 生成bwa.raw.sam.summary完成'
-    else
-      echo "[跳过] 跳过生成bwa.raw.sam.summary文件"
-    fi
-}
-
-bwaAnalysis &
 
 if [ ! -f "$SAMPLE_NAME".fixed.bam ]
 then
@@ -126,54 +111,13 @@ createTDF() {
 
 createTDF &
 
-if [ ! -f "${SAMPLE_NAME}_results_rmbl.window100000sliding10000.q30.tab" ]
-then
-  echo "[执行] multiBamSummary"
-  samtools index "$SAMPLE_NAME"."$Q30_EXT" -@ "$CORES"
-  multiBamSummary BED-file --numberOfProcessors "$CORES" --bamfiles "$SAMPLE_NAME"."$Q30_EXT" --BED "${GENOME_DIR}/window100000sliding10000.bed" -bl "${GENOME_DIR}/${GENOME_BLACKLIST_NAME}.blacklist.bed" -o "${SAMPLE_NAME}_results_rmbl.window100000sliding10000.q30.npz" --outRawCounts "${SAMPLE_NAME}_results_rmbl.window100000sliding10000.q30.tab"
-else
-  echo "[跳过] multiBamSummary"
-fi
-
-if [ ! -f "$SAMPLE_NAME".blacklist.nodup.q30.bed ]
+if [ ! -f "$SAMPLE_NAME".nodup.q30.bg ]
 then
   echo "[执行] bedtools"
-  bedtools genomecov -bga -pc -ibam "$SAMPLE_NAME"."$Q30_EXT" > "$SAMPLE_NAME".nodup.q30.bg \
-  && bedtools intersect -a "$SAMPLE_NAME".nodup.q30.bg -b  "${GENOME_DIR}/${GENOME_BLACKLIST_NAME}.blacklist.bed" -v -wa|sort -k1,1 -k2,2n> "$SAMPLE_NAME".blacklist.nodup.q30.bed
+  bedtools genomecov -bga -pc -ibam "$SAMPLE_NAME"."$Q30_EXT" > "$SAMPLE_NAME".nodup.q30.bg
 else
   echo "[跳过] bedtools"
 fi
-
-nonzeroCov() {
-  echo '[并行执行] nonzero cov'
-  if [ ! -f "$SAMPLE_NAME".blacklist.nodup.q30.nonzero.bed ]
-  then
-    echo "[执行] awk nonzero"
-    awk '{if ($4 != "0") {print $0}}' "$SAMPLE_NAME".blacklist.nodup.q30.bed | cut -f1-3 > "$SAMPLE_NAME".blacklist.nodup.q30.nonzero.bed
-  else
-    echo "[跳过] nonzero"
-  fi
-
-  if ! [ -f logging/"$SAMPLE_NAME".blacklist.q30.window100000.bed -a -f logging/"$SAMPLE_NAME".blacklist.q30.window500000.bed ]
-  then
-    echo "[执行] bedtools coverage"
-    bedtools coverage -b "$SAMPLE_NAME".blacklist.nodup.q30.nonzero.bed -a  "${GENOME_DIR}/window500000.bed" > logging/"$SAMPLE_NAME".blacklist.q30.window500000.bed
-    bedtools coverage -b "$SAMPLE_NAME".blacklist.nodup.q30.nonzero.bed -a  "${GENOME_DIR}/window100000sliding10000.bed" > logging/"$SAMPLE_NAME".blacklist.q30.window100000.bed
-  else
-    echo "[跳过] bedtools coverage"
-  fi
-
-  if [ ! -f logging/"$SAMPLE_NAME.$COV_EXT" ]
-  then
-    echo '[执行] cov.log生成'
-    echo "$SAMPLE_NAME.500000" > logging/"$SAMPLE_NAME.$COV_EXT"
-    cut -f7 logging/"$SAMPLE_NAME".blacklist.q30.window500000.bed >> logging/"$SAMPLE_NAME.$COV_EXT"
-  fi
-
-  echo '[并行执行完成] nonzero cov'
-}
-
-nonzeroCov &
 
 if [ ! -f "$SAMPLE_NAME".alignment.log ]
 then
@@ -242,22 +186,6 @@ then
 else
   echo "[跳过] 下采样10m"
 fi
-
-build_bw_files() {
-    export TMPDIR=/workspace;
-
-    if [ ! -f "$bamFile.bw" ]
-    then
-      echo "[异步执行] build_bw_files"
-      samtools index "$SAMPLE_NAME".10m."$Q30_EXT" -@ "$CORES"
-
-      bamCoverage --bam "$SAMPLE_NAME".10m."$Q30_EXT" -o "$SAMPLE_NAME".10m."$Q30_EXT".bw --binSize 10 --normalizeUsing RPGC --effectiveGenomeSize 2862010578 --numberOfProcessors "$CORES"
-    else
-      echo "[跳过] build_bw_files"
-    fi
-}
-
-# build_bw_files &
 
 reads=8000000
 
