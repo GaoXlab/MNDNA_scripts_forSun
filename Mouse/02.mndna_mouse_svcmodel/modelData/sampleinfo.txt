@@ -1,0 +1,76 @@
+Sample	label	test_group
+A_Apc1	APC (HFD)	cross_validation
+A_Apc2	APC (HFD)	cross_validation
+A_Apc3	APC (HFD)	cross_validation
+A_Apc4	APC (HFD)	cross_validation
+A_Apc5	APC (HFD)	cross_validation
+A_Apc6	APC (HFD)	cross_validation
+A_Apc7	APC (HFD)	cross_validation
+A_Apc8	APC (HFD)	cross_validation
+A_Apc9	APC (HFD)	cross_validation
+A_Apc10	APC (HFD)	cross_validation
+A_Apc11	APC (HFD)	cross_validation
+A_Apc12	APC (HFD)	cross_validation
+A_Apc13	APC (HFD)	cross_validation
+A_Ctrl1	Control (HFD)	cross_validation
+A_Ctrl2	Control (HFD)	cross_validation
+A_Ctrl3	Control (HFD)	cross_validation
+A_Ctrl4	Control (HFD)	cross_validation
+A_Ctrl5	Control (HFD)	cross_validation
+A_Ctrl6	Control (HFD)	cross_validation
+A_Ctrl7	Control (HFD)	cross_validation
+A_Ctrl8	Control (HFD)	cross_validation
+A_Ctrl9	Control (HFD)	cross_validation
+A_Ctrl10	Control (HFD)	cross_validation
+A_Ctrl11	Control (HFD)	cross_validation
+A_Ctrl12	Control (HFD)	cross_validation
+A_Ctrl13	Control (HFD)	cross_validation
+A_Ctrl14	Control (HFD)	cross_validation
+A_Ctrl15	Control (HFD)	cross_validation
+A_Ctrl16	Control (HFD)	cross_validation
+A_Ctrl17	Control (HFD)	cross_validation
+A_Ctrl18	Control (HFD)	cross_validation
+A_Apc17	APC (HFD)	test_20w
+A_Apc18	APC (HFD)	test_20w
+A_Apc19	APC (HFD)	test_20w
+A_Ctrl22	Control (HFD)	test_20w
+A_Ctrl23	Control (HFD)	test_20w
+A_Ctrl24	Control (HFD)	test_20w
+A_Apc14	APC (HFD)	10w
+A_Apc15	APC (HFD)	10w
+A_Apc16	APC (HFD)	10w
+A_Ctrl19	Control (HFD)	10w
+A_Ctrl20	Control (HFD)	10w
+A_Ctrl21	Control (HFD)	10w
+A_NantiIL18Apc1	APC (HFD) + IL-18, neutrolization	neutrolization
+A_NantiIL18Apc2	APC (HFD) + IL-18, neutrolization	neutrolization
+A_NantiIL18Apc3	APC (HFD) + IL-18, neutrolization	neutrolization
+A_NantiIL18Ctrl1	Control (HFD) + IL-18, neutrolization	neutrolization
+A_NantiIL18Ctrl2	Control (HFD) + IL-18, neutrolization	neutrolization
+A_NantiIL18Ctrl3	Control (HFD) + IL-18, neutrolization	neutrolization
+A_NIggApc1	APC (HFD) + IgG, neutrolization	neutrolization
+A_NIggApc2	APC (HFD) + IgG, neutrolization	neutrolization
+A_NIggApc3	APC (HFD) + IgG, neutrolization	neutrolization
+A_NIggCtrl1	Control (HFD) + IgG, neutrolization	neutrolization
+A_NIggCtrl2	Control (HFD) + IgG, neutrolization	neutrolization
+A_NIggCtrl3	Control (HFD) + IgG, neutrolization	neutrolization
+A_NpbsApc1	APC (HFD) + PBS, neutrolization	neutrolization
+A_NpbsApc2	APC (HFD) + PBS, neutrolization	neutrolization
+A_NpbsApc3	APC (HFD) + PBS, neutrolization	neutrolization
+A_NpbsCtrl1	Control (HFD) + PBS, neutrolization	neutrolization
+A_NpbsCtrl2	Control (HFD) + PBS, neutrolization	neutrolization
+A_NpbsCtrl3	Control (HFD) + PBS, neutrolization	neutrolization
+DSS1	DSS-induced	DSS
+DSS2	DSS-induced	DSS
+DSS3	DSS-induced	DSS
+DSS4	DSS-induced	DSS
+DSS_Ctrl1	untreated	DSS
+DSS_Ctrl2	untreated	DSS
+DSS_Ctrl3	untreated	DSS
+DSS_Ctrl4	untreated	DSS
+Rpl11_Ctrl1	Control (Rpl11 +/+)	Rpl11
+Rpl11_Ctrl2	Control (Rpl11 +/+)	Rpl11
+Rpl11_Ctrl3	Control (Rpl11 +/+)	Rpl11
+Rpl11_lox1	Rpl11 haploinsufficiency (+/lox)	Rpl11
+Rpl11_lox2	Rpl11 haploinsufficiency (+/lox)	Rpl11
+Rpl11_lox3	Rpl11 haploinsufficiency (+/lox)	Rpl11
