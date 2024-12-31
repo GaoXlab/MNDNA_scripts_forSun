@@ -38,7 +38,6 @@ void load_sample_info(string input_info) {
 	fclose(f_info);
 }
 
-// 读tab头、确定各样本算CA还是HD。CA填true，HD填false，info里没找到会屏幕报错并算false
 char __line__[2002002];
 vector<int> label;
 vector<string> get_seq_id(string file_name){
@@ -121,32 +120,6 @@ void upd(int &ans_sum, int &ans_gap, int sum, int gap) {
 	if (sum == ans_sum && gap > ans_gap) return;
 	ans_sum = sum;
 	ans_gap = gap;
-}
-pair<int, double> get_score_new(vector<pair<double, bool> > v) {
-	pair<int, double> res = make_pair(0, 0);
-	sort(v.begin(), v.end());
-	if (v[0].first + 10 >=  v.back().first) return res;
-	int len = (int)v.size();
-	int cur_sum = 0;
-	int sum_ma = 0, pos_ma = -1, sum_mi = 0, pos_mi = -1;
-	int ans_sum = 0, ans_gap = 0;
-	for(int i=0;i<len;i++) {
-		if (v[i].second == false) cur_sum --;
-		else cur_sum ++;
-		
-		upd(ans_sum, ans_gap, cur_sum - sum_mi, i - pos_mi);
-		upd(ans_sum, ans_gap, sum_ma - cur_sum, i - pos_ma);
-		
-		if (cur_sum <= sum_mi) {
-			sum_mi = cur_sum;
-			pos_mi = i;
-		}
-		if (cur_sum >= sum_ma) {
-			sum_ma = cur_sum;
-			pos_ma = i;
-		}
-	}
-	return make_pair(ans_sum, -ans_gap);
 }
 
 vector<double> __tmp__;
@@ -236,4 +209,3 @@ int main(int argc,char*argv[]) {
 
 	return 0;
 }
-
