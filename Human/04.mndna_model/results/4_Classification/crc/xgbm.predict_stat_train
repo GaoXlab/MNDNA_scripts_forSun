@@ -1,0 +1,11 @@
+AUC: 99.64168233082707
+Sample Positive, Predict Positive: 105
+Sample Negative, Predict Positive: 1
+Sample Positive, Predict Negative: 7
+Sample Negative, Predict Negative: 151
+Accuracy: 96.96969696969697%
+PPV: 99.05660377358491%
+NPV: 95.56962025316456%
+Sensitivity: 93.75%
+Specificity: 99.34210526315789%
+Precision: 99.05660377358491%
