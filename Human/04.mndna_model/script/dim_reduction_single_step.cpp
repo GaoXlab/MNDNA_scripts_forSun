@@ -1,13 +1,9 @@
-// 相关文档：https://timingbio.feishu.cn/wiki/wikcnwY8JLkYqpslDy2nfgZb9xe
-// 本文件输入训练tab，输出每个window的得分bed
-
 #include<bits/stdc++.h>
 using namespace std;
 
 #define i64 long long int
 mt19937 rnd(741);
-int _koala_gap = 0; // 考虑分割点前后的2个元素，如果距离小于这个值则放弃这个分割点
-// int _koala_DIM = 100; // 最后保留的条目数
+int _koala_gap = 0;
 
 // 读样本信息
 struct Info {
@@ -86,19 +82,16 @@ void load_sample_label(string input_tab) {
 		if(info_dict.find(seq_id) != info_dict.end())
 			label.push_back(info_dict[seq_id].label);
 		else {
-			//printf("seq_id: %s info not found\n", seq_id.c_str());
 			label.push_back(-1);
 		}
 	}
 }
 
 
-// 之前的假设：关键列上能找到分割线，使线上方的正样本尽量多、下方的负样本尽量多（或者反过来）
 pair<int, double> get_score(vector<pair<double, int> > v) {
 	pair<int, double> res = make_pair(0, 0);
 	sort(v.begin(), v.end());
-	// 为了干掉全相同的列（此时得分跟id排序相关，无意义），要设一个eps检测全相同
-	// 但同时为了兼容01vector，最大最小差值限到0.1
+
 	if (v[0].first + 0.1 >= v.back().first) return res; 
 	int len = (int)v.size();
 	int tot_pos = 0, tot_neg = 0;
@@ -116,22 +109,13 @@ pair<int, double> get_score(vector<pair<double, int> > v) {
 			cur_pos + (tot_neg-cur_neg)
 		);
 		double gap = v[i+1].first - v[i].first;
-		if (gap<_koala_gap) continue; // 这句话加了之后AUC暴跌13个点
-		if (gap<1e-6) continue; // 切点前后数字需要不同
+		if (gap<_koala_gap) continue;
+		if (gap<1e-6) continue;
 		if (score > res.first || score == res.first && gap > res.second)
 			res = make_pair(score, gap);
 	}
-	/*
-	if(res.first >= 90) {
-		for(int i=0;i<(int)v.size();i++) printf("%.2lf ", v[i].first);
-		puts("");
-	}
-	*/
 	return res;
 }
-// 新假设：关键列上存在指标聚集区间，小于区间左端点或者大于区间右端点的正样本尽量多，区间内负样本尽量多（或者反过来）
-// 需求暂时很naive的翻成这么个题：正样本是1负样本是-1，问最大（最小）连续段和。
-// 这里第二维参数不太好选，先随便填 达成最大（最小）连续段和的最小长度 。取负数来表达越小越好。
 void upd(int &ans_sum, int &ans_gap, int sum, int gap) {
 	if (sum < ans_sum) return;
 	if (sum == ans_sum && gap > ans_gap) return;
@@ -141,7 +125,7 @@ void upd(int &ans_sum, int &ans_gap, int sum, int gap) {
 pair<int, double> get_score_new(vector<pair<double, bool> > v) {
 	pair<int, double> res = make_pair(0, 0);
 	sort(v.begin(), v.end());
-	if (v[0].first + 10 >=  v.back().first) return res; // 差值不到10的列直接干掉，主要是想干掉全0的列
+	if (v[0].first + 10 >=  v.back().first) return res;
 	int len = (int)v.size();
 	int cur_sum = 0;
 	int sum_ma = 0, pos_ma = -1, sum_mi = 0, pos_mi = -1;
@@ -165,7 +149,6 @@ pair<int, double> get_score_new(vector<pair<double, bool> > v) {
 	return make_pair(ans_sum, -ans_gap);
 }
 
-// 读tab代码，速度&&节约内存起见，计算输出跟读入耦合。
 vector<double> __tmp__;
 void __fast_read__(FILE* inp, vector<double> &v) {
 	__line__[0] = 0;
@@ -221,12 +204,7 @@ void load_detail(string input_tab, string output_bed){
 	while(1) {
 		__fast_read__(inp, __tmp__);
 		if(!__tmp__.size()) break;
-		/*printf("%d\n", __tmp__.size());
-		for(auto it = __tmp__.begin(); it != __tmp__.end(); it++)
-			printf("%.4lf ", (*it));
-		puts("");
-		return;*/
-		
+
 		for(int i=0;i<sz;i++) v[i].first = __tmp__[i+3];
 		auto res = get_score(v);
 		
@@ -247,12 +225,10 @@ int main(int argc,char*argv[]) {
 	string input_info = "./all.sample.info";
 	string input_tab = "./" + string(argv[1]);
 	string output_bed = "./" + string(argv[1]) + ".bed";
-	//string input_blacklist = "./all.window.blacklist";
-	
-	puts("======= 数据降维步骤 - 维度选择 ======");
+
+	puts("======= dim selection ======");
 	puts("Expect runtime: 20s");
 	load_sample_info(input_info);
-	//load_window_list(input_blacklist, "blacklist", blacklist);
 	load_sample_label(input_tab);
 	load_detail(input_tab, output_bed);
 	puts("Load complete.");
