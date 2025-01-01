@@ -78,8 +78,8 @@ cutoff = PanC_test_pred[which((PanC_test_pred$Target==0) & (PanC_test_pred$group
 cutoff = as.numeric(cutoff[order(cutoff$final_prob), ][45,'final_prob'])
 panc_test_stage = get_sensitivity_inxspe(PanC_test_pred[which(PanC_test_pred$group.label=='test set'), ], cutoff)
 panc_test_type = get_sensitivity_inxspe2(PanC_test_pred[which(PanC_test_pred$group.label=='test set'), ], cutoff)
-panc_ind_stage = get_sensitivity_inxspe(PanC_test_pred[which((PanC_test_pred$group.label=='independent 2')|(PanC_test_pred$group.label=='independent 3')), ], cutoff)
-panc_ind_type = get_sensitivity_inxspe2(PanC_test_pred[which((PanC_test_pred$group.label=='independent 2')|(PanC_test_pred$group.label=='independent 3')), ], cutoff)
+panc_ind_stage = get_sensitivity_inxspe(PanC_test_pred[which(((PanC_test_pred$group.label=='independent 2')|(PanC_test_pred$group.label=='independent 3'))&(PanC_test_pred$label!='BloodDisease')), ], cutoff)
+panc_ind_type = get_sensitivity_inxspe2(PanC_test_pred[which(((PanC_test_pred$group.label=='independent 2')|(PanC_test_pred$group.label=='independent 3'))&(PanC_test_pred$label!='BloodDisease')), ], cutoff)
 
 cutoff = PanC_test_pred[which((PanC_test_pred$Target==0) & (PanC_test_pred$group.label=='test set')), ]
 cutoff = as.numeric(cutoff[order(cutoff$final_prob), ][46,'final_prob'])
