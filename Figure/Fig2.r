@@ -20,13 +20,13 @@ df <- data.frame(
   name = c('1.overlapped','2.no_overlapped'), level = c('1','1'),
   values = c(round(100*(overlapped_regions/nrow(CRC0103)),2),round(100-100*(overlapped_regions/nrow(CRC0103)),2))
 )
-Fig2d <- ggplot(df, aes(x = level, y = values, fill = name, alpha = level)) +
+Fig2c <- ggplot(df, aes(x = level, y = values, fill = name, alpha = level)) +
         geom_col(width = 1, color = 'gray90', size = 1, position = position_stack(0.6)) + coord_polar(theta = 'y') +
         scale_alpha_manual(values = c('0' = 0.2, '1' = 0.8, '2' = 0.5), guide = F) +
         geom_text(aes(label = paste0(values, "%")), position = position_stack(vjust=0.5)) + 
         scale_x_discrete(breaks = NULL) + scale_y_continuous(breaks = NULL) + labs(x = NULL, y = NULL) + 
         scale_fill_manual(values=c("#1B7837","#D9D9D9"), na.translate = F) + theme_minimal()+theme(legend.position="none")
-ggsave('./Fig2/Fig2d.pdf', Fig2d, width=3, height=3)
+ggsave('./Fig2/Fig2c.pdf', Fig2c, width=3, height=3)
 
 
 
