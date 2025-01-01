@@ -76,10 +76,10 @@ total_perc$V1 = as.numeric(total_perc$V1)
 total_perc$perc = (total_perc$V1/nrow(mndna_enriched))*100
 total_perc$label = 'perc'
 total_perc$V2 = factor(total_perc$V2, levels=c('no-anno','no-active','active'))
-fig1h <- ggplot(total_perc, aes(x=label,y=perc,fill=V2))+geom_bar(stat="identity",alpha=0.5)+
+fig1g <- ggplot(total_perc, aes(x=label,y=perc,fill=V2))+geom_bar(stat="identity",alpha=0.5)+
         scale_fill_manual(values=c('grey','#4D7FB9','red4'))+ylab('Proportion of overlapped>50%\nwithin annotated chromatin states')+
         theme_bw()+theme(legend.position='none', panel.grid.major=element_blank(), panel.grid.minor=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank())
-ggsave('Fig1/Fig1g.pdf',fig1h, width=2, height=3)
+# ggsave('Fig1/Fig1g.pdf',fig1h, width=2, height=3)
 
 
 
@@ -100,7 +100,6 @@ p_mnDNA <- ggplot(mndna_enriched_summary[[1]], aes(x=Var2, y=value)) +
     coord_flip() + theme_bw() + 
     theme(axis.text.y=element_blank(),axis.title.x=element_blank(), axis.ticks.y=element_blank(),panel.grid.major=element_blank(), panel.grid.minor=element_blank()) + xlab('') + ylim(0,0.3)
 
-pdf('Fig1/Fig1h.pdf', width=5, height=3)
-plot_grid(p_random,p_mnDNA, ncol=2, rel_widths=c(1.05,0.55))
-dev.off()
+fig1g_m = plot_grid(fig1g, p_random,p_mnDNA, ncol=3, rel_widths=c(0.5, 1.05, 0.55))
+ggsave('Fig1/Fig1g.pdf', width=6.5, height=3)
 
