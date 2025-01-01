@@ -101,5 +101,5 @@ p_mnDNA <- ggplot(mndna_enriched_summary[[1]], aes(x=Var2, y=value)) +
     theme(axis.text.y=element_blank(),axis.title.x=element_blank(), axis.ticks.y=element_blank(),panel.grid.major=element_blank(), panel.grid.minor=element_blank()) + xlab('') + ylim(0,0.3)
 
 fig1g_m = plot_grid(fig1g, p_random,p_mnDNA, ncol=3, rel_widths=c(0.5, 1.05, 0.55))
-ggsave('Fig1/Fig1g.pdf', width=6.5, height=3)
+ggsave('Fig1/Fig1g.pdf', fig1g_m, width=6.5, height=3)
 
