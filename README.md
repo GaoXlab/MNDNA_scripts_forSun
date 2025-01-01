@@ -20,7 +20,7 @@ This project provides a bioinformatics analysis pipeline for preprocessing and a
 ```
 
 # 2. preprocessing the MN-DNA WGS data
-The analysis pipeline for preprocessing the MN-DNA whole-genome sequencing data is 01.pipeline_preprocess.sh.  
+The analysis pipeline for preprocessing the MN-DNA whole-genome sequencing data is `01.pipeline_preprocess.sh`.  
 The pipeline reads the location of the FastQ files and the output directory from environment variables, as well as the type of genome. When using the pipeline, ensure that the specified locations contain the `sample_name_1.fq.gz` and `sample_name_2.fq.gz` files.
 ```bash
 export SAMPLE_NAME=$SAMPLE_NAME;export SOURCE=$SOURCE_DIR;export OUTPUT_DIR=$OUTPUT_DIR;export GENOME_TYPE=$GENOME_TYPE;./01.pipeline_preprocess.sh
@@ -35,7 +35,7 @@ export SAMPLE_NAME=$SAMPLE_NAME;export SOURCE=$SOURCE_DIR;export OUTPUT_DIR=$OUT
 
 # 4. Subsequent Analysis for Mouse Samples  
 
-- **01.H460added**: Contains the script mapgenome_bbsplit.sh for mapping reads to multiple reference genomes simultaneously.
+- **01.H460added**: Contains the script `mapgenome_bbsplit.sh` for mapping reads to multiple reference genomes simultaneously.
 - **02.mndna_mouse_svcmodel**: Contains the scripts and processes for building the MN-DNA classification model for APC mice.
 - **03.MS**: Contains the mass spectrometry data results.
 - **04.scRNAseq_process**: Contains the script and processes for analyzing single-cell RNA sequencing data for APC mice.
