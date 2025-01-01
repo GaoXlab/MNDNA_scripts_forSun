@@ -2,6 +2,53 @@ source('Rscript/stat.r')
 
 color_defination <- list.load(str_c(workpath,'/color_defination.json'))
 immune.combined <- readRDS(str_c(workpath, '/Final_20w_WTAPC_UMAP_30PCA_0.6Resolution.CellAnno_ClassicMarkers.rds'))
+HSC_subset <- readRDS(str_c(workpath, '/Final_20w_WTAPC_UMAP_30PCA_0.6Resolution.CellAnno_ClassicMarkers.HSC_subset.rds'))
+
+### MEP, MPP3 and MPP4
+rds = subset(immune.combined, il18signal_stage=='High') #immune.combined # 
+Idents(rds) <- rds$celltype
+rds$celltype.sample_group <- paste(Idents(rds), rds$sample_group, sep = "_")
+rds$celltype <- Idents(rds)
+Idents(rds) <- "celltype.sample_group"
+
+HSC_subset_rds = subset(HSC_subset, il18signal_stage=='High') 
+HSC_subset_rds$celltype.sample_group <- paste(HSC_subset_rds$celltype, HSC_subset_rds$sample_group, sep = "_")
+Idents(HSC_subset_rds) <- "celltype.sample_group"
+
+clusteri = 'MEP'
+DefaultAssay(rds) <- "RNA"
+tmp <- FindMarkers(rds, ident.1 = str_c(clusteri, '_A_20w'), ident.2 = str_c(clusteri, '_W_20w'), verbose = FALSE, only.pos = TRUE)
+genes <- rownames(tmp)
+trans.conserved_MEP <- bitr(genes, fromType="SYMBOL",toType="ENTREZID", OrgDb='org.Mm.eg.db'); rownames(trans.conserved_MEP) = trans.conserved_MEP$ENTREZID
+ego <- enrichGO(gene = trans.conserved_MEP$ENTREZID,OrgDb = org.Mm.eg.db,ont= "ALL",pAdjustMethod = "BH",pvalueCutoff = 0.05,qvalueCutoff = 1,readable= TRUE)
+edox <- setReadable(ego, 'org.Mm.eg.db', 'ENTREZID')
+edox2 <- pairwise_termsim(edox)
+p1_MEP <- treeplot(edox2, showCategory = 10, label_format_tiplab=40, nCluster=4, geneClusterPanel = "pie", offset=rel(3), hexpand=0.3, group_color=c('#BC3C2966','#0072B566','#DC000066','#3C548866'))+theme(legend.position='bottom')+ylab('MEP')
+
+clusteri = 'MPP3'
+tmp <- FindMarkers(HSC_subset_rds, ident.1 = str_c(clusteri, '_A_20w'), ident.2 = str_c(clusteri, '_W_20w'), verbose = FALSE, only.pos = TRUE)
+genes <- rownames(tmp)
+trans.conserved_MPP3 <- bitr(genes, fromType="SYMBOL",toType="ENTREZID", OrgDb='org.Mm.eg.db'); rownames(trans.conserved_MPP3) = trans.conserved_MPP3$ENTREZID
+ego <- enrichGO(gene = trans.conserved_MPP3$ENTREZID,OrgDb = org.Mm.eg.db,ont= "ALL",pAdjustMethod = "BH",pvalueCutoff = 0.05,qvalueCutoff = 1,readable= TRUE)
+edox <- setReadable(ego, 'org.Mm.eg.db', 'ENTREZID')
+edox2 <- pairwise_termsim(edox)
+p1_MPP3 <- treeplot(edox2, showCategory = 10, label_format_tiplab=40, nCluster=4, geneClusterPanel = "pie", offset=rel(3), hexpand=0.3, group_color=c('#DC000066','#F39B7F66','#BC3C2966','#3C548866'))+theme(legend.position='bottom')+ylab('MPP3')
+# treeplot(edox2, showCategory = 10, geneClusterPanel = "pie", fontsize=4,label_format_tiplab=40,nCluster=3)  
+
+clusteri = 'MPP4'
+tmp <- FindMarkers(HSC_subset_rds, ident.1 = str_c(clusteri, '_A_20w'), ident.2 = str_c(clusteri, '_W_20w'), verbose = FALSE, only.pos = TRUE)
+genes <- rownames(tmp)
+trans.conserved_MPP4 <- bitr(genes, fromType="SYMBOL",toType="ENTREZID", OrgDb='org.Mm.eg.db'); rownames(trans.conserved_MPP4) = trans.conserved_MPP4$ENTREZID
+ego <- enrichGO(gene = trans.conserved_MPP4$ENTREZID,OrgDb = org.Mm.eg.db,ont= "ALL",pAdjustMethod = "BH",pvalueCutoff = 0.05,qvalueCutoff = 1,readable= TRUE)
+edox <- setReadable(ego, 'org.Mm.eg.db', 'ENTREZID')
+edox2 <- pairwise_termsim(edox)
+p1_MPP4 <- treeplot(edox2, showCategory = 10, label_format_tiplab=40, nCluster=4, geneClusterPanel = "pie", offset=rel(3), hexpand=0.3, group_color=c('#0072B566','#E64B3566','#3C548866','#6F99AD66'))+theme(legend.position='bottom')+ylab('MPP4')
+
+pdf('../../Figure/Fig6/Fig6d.pdf', width=24, height=6)
+plot_grid(p1_MEP, p1_MPP3, p1_MPP4, ncol=3)
+dev.off()
+
+
 
 ########## GO/KEGG/REACTOME pathway #############
 ### 1. APC vs WT
@@ -95,3 +142,4 @@ for(clusteri in names(table(rds$celltype))){
         REACTOMEpathway_plot <- rbind(REACTOMEpathway_plot, REACTOME_df_plot)
     }
 }
+
