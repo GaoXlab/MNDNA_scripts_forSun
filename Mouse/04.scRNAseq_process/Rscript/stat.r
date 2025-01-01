@@ -1,5 +1,5 @@
 library(dplyr)
-library(Seurat)
+library(Seurat) # 4.3.0
 library(stringr)
 library(cowplot)
 library(viridis)
@@ -21,18 +21,20 @@ library(GOplot)
 library(ReactomeGSA.data)
 library(ReactomeGSA)
 library(ReactomePA)
+library(enrichplot)
+
 mouse <- msigdbr(species = "Mus musculus")
 
 
 data_summary <- function(data, varname, groupnames){
-      require(plyr)
+      library(plyr)
+      library(tidyverse)
       summary_func <- function(x, col){
         c(mean = mean(x[[col]], na.rm=TRUE),
           sd = sd(x[[col]], na.rm=TRUE))
       }
       data_sum<-ddply(data, groupnames, .fun=summary_func,
                       varname)
-      data_sum <- rename(data_sum, c("mean" = varname))
       return(data_sum)
     }
 
@@ -51,8 +53,6 @@ cellnumber_summary <- function(rds, sample_labels, sample_groups, celltypes, col
     	cellratio_in_sample_label <- c()
     	for(sample_label_i in sample_label_list){
         # ## rename
-        # cellnum_in_cluster <- gsub('BMT_20w_1', 'BMT_W_20w', cellnum_in_cluster)
-        # cellnum_in_cluster <- gsub('BMT_20w_2', 'BMT_A_20w', cellnum_in_cluster)
             sample_label_cell_num <- c(sample_label_cell_num, length(grep(str_c('^', sample_label_i, '_'), cellnum_in_cluster)))
     		cellratio_in_sample_label <- c(cellratio_in_sample_label, length(grep(str_c('^', sample_label_i, '_'), cellnum_in_cluster))/table(rds$sample_label)[sample_label_i])
       }
@@ -73,31 +73,15 @@ cellnumber_summary <- function(rds, sample_labels, sample_groups, celltypes, col
     df3$value100 <- df3$value*100
     df3$group <- gsub('_1$|_2$|_3$|_4$','', df3$label)
     df3$group <- factor(df3$group, sample_groups)
-    p3 <- ggplot(data = df3, aes(x = group, y = value100, fill = group)) + ##
-            geom_boxplot(outlier.shape = NA, lwd=0.1)+theme_bw()+
-            geom_jitter(width = 0.3, size = 0.005)+#
-            scale_fill_manual(values=c('#374E55FF','#E64B35FF'))+
-            theme(legend.position='bottom',legend.title=element_blank(),axis.text.x = element_blank())+
-            facet_grid(.~celltype)+
-            stat_compare_means(label = "p.signif", method = "t.test",comparisons=list(c('W_20w','A_20w')))
-
-    cells_statistics_insample <- cells_statistics[grep('CellRatio_in_Samples', colnames(cells_statistics))]
-    colnames(cells_statistics_insample) <- gsub('CellRatio_in_Samples','',colnames(cells_statistics_insample))
-    # cells_statistics_insample <- cells_statistics_insample[, c("W_5w_1","W_5w_2","W_20w_1","W_20w_2","W_20w_3","W_20w_4","A_5w_1","A_5w_2","A_20w_1","A_20w_2","A_20w_3","A_20w_4","BMT_W_20w","BMT_A_20w")]
-    # cells_statistics_insample <- cells_statistics_insample[, c("W_20w_1","W_20w_2","A_20w_1","A_20w_2")]
-    # pheatmap(cells_statistics_insample, scale='row')#, cluster_col=FALSE)
-    # cells_statistics_insample <- cells_statistics_insample[, c("W_20w_3","W_20w_4","A_20w_3","A_20w_4")]
-    cells_statistics_insample <- cells_statistics_insample[, sample_labels]
-    df3_trans <- data_summary(df3, varname="value", groupnames=c("celltype", "group"))
+    df3_trans <- data_summary(df3, varname="value100", groupnames=c("celltype", "group"))
     # Convert dose to a factor variable
     df3_trans$celltype=as.factor(df3_trans$celltype)
     colors=c('#374E55FF','#E64B35FF')
-    p4 <- ggplot(df3_trans, aes(x=celltype, y=value, fill=group)) + 
-      geom_bar(stat="identity", position=position_dodge()) +
-      geom_errorbar(aes(ymin=value-sd, ymax=value+sd), width=.2, position=position_dodge(.9))+
+    p4 <- ggplot(df3_trans, aes(x=celltype, y=mean, fill=group)) + 
+      geom_bar(stat="identity", position=position_dodge()) + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9))+ ylab('proportion in BM (%)') +
       scale_fill_manual(values=colors)+ theme(legend.position='bottom')+theme_classic()+theme(legend.position='right', axis.text.x = element_text(angle = 45,vjust = 1,hjust = 1))
-    g <- plot_grid(p3,p4,ncol=1)
-    ggsave(str_c("./", name, "cellsratio_InAnnotationClusters.barplot2.pdf"), g, width=10, height=6)
+    # ggsave(str_c("./", name, "cellsratio_InAnnotationClusters.barplot2.pdf"), p4, width=6, height=2)
+    return(p4)
 }
 
 enrichment <- function(genename, path2save){
