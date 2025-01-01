@@ -29,7 +29,7 @@ load('../Human/04.mndna_model/results/2_FeatureSelection/CRCmodel_fs.RData')
 trnval_crc_samplelist = cohort1[which(((cohort1$label=='HD')|(cohort1$label=='CRC'))&(cohort1$group.label=='train/val')), 'Sample']
 
 trnval_crc_df = as.data.frame(t(CRCmodel_fs[, trnval_crc_samplelist]))
-trnval_crc_df$label = 'HD'; trnval_crc_df[grep('GLRCRC', rownames(trnval_crc_df_t)), 'label'] = 'CRC'
+trnval_crc_df$label = 'HD'; trnval_crc_df[grep('GLRCRC', rownames(trnval_crc_df)), 'label'] = 'CRC'
 
 candidate_fea = read.table('../Human/03.features_annotation/result/GenomicAnnotationIn_CRC0103_addtoRegion.log', head=TRUE, sep='\t', row.names=1)
 final_fea = read.table('../Human/04.mndna_model/results/3_FeatureReduction/manu_crc_240103.bed', sep='\t', head=FALSE)
