@@ -24,6 +24,12 @@ The analysis pipeline for preprocessing the MN-DNA whole-genome sequencing data 
 The pipeline reads the location of the FastQ files and the output directory from environment variables, as well as the type of genome. When using the pipeline, ensure that the specified locations contain the `sample_name_1.fq.gz` and `sample_name_2.fq.gz` files.
 ```bash
 export SAMPLE_NAME=$SAMPLE_NAME;export SOURCE=$SOURCE_DIR;export OUTPUT_DIR=$OUTPUT_DIR;export GENOME_TYPE=$GENOME_TYPE;./01.pipeline_preprocess.sh
+
+# For human genome-wide MN-DNA distribution, related to Fig1e,f
+Rscript ./02.pipeline_QDNAseq.r ./ $SAMPLE_NAME.60m.nodup.q30.bam 1000 hg38
+Rscript ./02.pipeline_QDNAseq.r ./ $SAMPLE_NAME.60m.nodup.q30.bam 100 hg38
+# For mus sample 
+Rscript ./02.pipeline_QDNAseq.r ./ $SAMPLE_NAME.8m.mm10.nodup.q30.bam 10 mm10
 ```
 
 
