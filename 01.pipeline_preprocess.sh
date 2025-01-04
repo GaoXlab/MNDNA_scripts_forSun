@@ -29,85 +29,85 @@ fi
 
 if ! [ -f "$SAMPLE_NAME".2.fastq -a -f "$SAMPLE_NAME".1.fastq ]
 then
-  echo '[执行] 开始解压缩'
+  echo '[Running] decompressing'
   gzip -dkfc "$SOURCE/${SAMPLE_NAME}_1".fq.gz > "$SAMPLE_NAME".1.fq && mv "$SAMPLE_NAME".1.fq "$SAMPLE_NAME".1.fastq &
   gzip -dkfc "$SOURCE/${SAMPLE_NAME}_2".fq.gz > "$SAMPLE_NAME".2.fq && mv "$SAMPLE_NAME".2.fq "$SAMPLE_NAME".2.fastq &
   wait;
 else
-  echo "[跳过] 解压缩"
+  echo "[Skip] decompress"
 fi
 
 if [ ! -f "$SAMPLE_NAME".2.fastq.clipper ]
 then
-  echo "[执行] trimmomatic 去接头"
+  echo "[Running] trimmomatic adater sequence"
 
   java -jar Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 30 ${SAMPLE_NAME}.1.fastq ${SAMPLE_NAME}.2.fastq "$SAMPLE_NAME.1.tmp.clipper.fastq" "$SAMPLE_NAME.1.tmp.unpaired.clipper.fastq" "$SAMPLE_NAME.2.tmp.clipper.fastq" "$SAMPLE_NAME.2.tmp.unpaired.clipper.fastq" ILLUMINACLIP:Trimmomatic-0.39/adapters/NexteraPE-PE.fa:2:30:10:2:True LEADING:3 TRAILING:3 MINLEN:36 > logging/"$SAMPLE_NAME".trimmomatic.log 2>&1 \
   && mv "$SAMPLE_NAME.1.tmp.clipper.fastq" "$SAMPLE_NAME.1.fastq.clipper" \
   && mv "$SAMPLE_NAME.2.tmp.clipper.fastq" "$SAMPLE_NAME.2.fastq.clipper"
 
 else
-  echo "[跳过] trimmomatic"
+  echo "[Skip] trimmomatic"
 fi
 
-rm "$SAMPLE_NAME".1.fastq "$SAMPLE_NAME".2.fastq #减少磁盘空间压力
+rm "$SAMPLE_NAME".1.fastq "$SAMPLE_NAME".2.fastq 
 
 if [ ! -f "$SAMPLE_NAME".bwa.raw.bam ]
 then
-  echo "[执行] bwa mem （clean reads比对基因组）"
+  echo "[Running] bwa mem (clean reads mapping)"
   bwa-mem2-2.2.1_x64-linux/bwa-mem2 mem "${GENOME_DIR}/${GENOME_NAME}".fa -t "$CORES" -o "$SAMPLE_NAME".bwa.raw.sam.tmp "$SAMPLE_NAME".1.fastq.clipper "$SAMPLE_NAME".2.fastq.clipper > logging/"$SAMPLE_NAME".bwa.log 2>&1 \
   && mv "$SAMPLE_NAME".bwa.raw.sam.tmp "$SAMPLE_NAME".bwa.raw.sam
 
-  echo '开始压缩sam，减小rsync成本' #此时sam还在内存内，能大幅减少压缩bam的时间
+  echo 'Start compressing SAM to reduce rsync costs'
   samtools view -Sb "$SAMPLE_NAME".bwa.raw.sam  -o "$SAMPLE_NAME".bwa.raw.bam.tmp  -@ "$CORES"  && mv "$SAMPLE_NAME".bwa.raw.bam.tmp "$SAMPLE_NAME".bwa.raw.bam
 else
-  echo "[跳过] bwa mem"
+  echo "[Skip] bwa mem"
 fi
 
 if [ ! -f "$SAMPLE_NAME".fixed.bam ]
 then
-  echo "[执行] samtools fixmate"
+  echo "[Running] samtools fixmate"
   samtools  fixmate -m "$SAMPLE_NAME".bwa.raw.sam  "$SAMPLE_NAME".fixed.tmp.bam -@ "$CORES" \
   && mv "$SAMPLE_NAME".fixed.tmp.bam "$SAMPLE_NAME".fixed.bam
 else
-  echo "[跳过] samtools fixmate"
+  echo "[Skip] samtools fixmate"
 fi
 
 if [ ! -f "$SAMPLE_NAME".bam ]
 then
-  echo "[执行] 生成bam文件(samtools过滤) "
+  echo "[Running] samtools filter"
   samtools view -b -F 3340 "$SAMPLE_NAME".fixed.bam -@ "$CORES" | samtools sort - -o "$SAMPLE_NAME".bam.tmp -@ "$CORES" \
   && mv "$SAMPLE_NAME".bam.tmp "$SAMPLE_NAME".bam
 else
-  echo "[跳过] 跳过生成bam文件"
+  echo "[Skip] .bam"
 fi
 
 if [ ! -f "$SAMPLE_NAME"."$BAM_EXT" ]
 then
-  echo "[执行] 生成nodup.bam文件 （samtools markdup去重）"
+  echo "[Running] samtools markdup"
   samtools markdup -r "$SAMPLE_NAME".bam "$SAMPLE_NAME".nodup.tmp.bam -m s -f "$SAMPLE_NAME".dup -@ "$CORES" > /dev/null 2>&1 \
   && mv "$SAMPLE_NAME".nodup.tmp.bam "$SAMPLE_NAME"."$BAM_EXT"
 else
-  echo "[跳过] 跳过生成nodup.bam文件"
+  echo "[Skip] .nodup.bam"
 fi
 
 if [ ! -f "$SAMPLE_NAME"."$Q30_EXT" ]
 then
-  echo "[执行] samtools q30 过滤"
+  echo "[Running] samtools q30 filter"
   samtools view "$SAMPLE_NAME"."$BAM_EXT" -b  -q 30 -o "$SAMPLE_NAME".tmp."$Q30_EXT" -@ "$CORES" \
   && mv "$SAMPLE_NAME".tmp."$Q30_EXT" "$SAMPLE_NAME"."$Q30_EXT"
 else
-  echo "[跳过] samtools q30 过滤"
+  echo "[Skip] .nodup.q30.bam"
 fi
 
 createTDF() {
     if [ ! -f "$SAMPLE_NAME"."$TDF_EXT" -a ! -f "$SAMPLE_NAME"."$TDF_EXT".gz ]
     then
-      echo "[执行] 并行生成uniq.nodup.tdf文件 （igvtool 基因数据可视化）"
+      echo "[Running] igvtools (nodup.q30.tdf)"
       igvtools count --pairs -z 10 -w 5 "$SAMPLE_NAME"."$Q30_EXT" "$SAMPLE_NAME".tmp."$TDF_EXT" "${GENOME_DIR}/${GENOME_NAME}.chrom.sizes" > /dev/null 2>&1 \
-      && mv "$SAMPLE_NAME".tmp."$TDF_EXT" "$SAMPLE_NAME"."$TDF_EXT" && echo '[并行执行完成] 生成tdf完成'
+      && mv "$SAMPLE_NAME".tmp."$TDF_EXT" "$SAMPLE_NAME"."$TDF_EXT" && echo '[Finish] .tdf'
       gzip "$SAMPLE_NAME"."$TDF_EXT"
     else
-      echo "[跳过] 跳过生成uniq.nodup.tdf文件"
+      echo "[Skip] .nodup.q30.tdf"
     fi
 }
 
@@ -115,15 +115,15 @@ createTDF &
 
 if [ ! -f "$SAMPLE_NAME".nodup.q30.bg ]
 then
-  echo "[执行] bedtools"
+  echo "[Running] bedtools genomecov"
   bedtools genomecov -bga -pc -ibam "$SAMPLE_NAME"."$Q30_EXT" > "$SAMPLE_NAME".nodup.q30.bg
 else
-  echo "[跳过] bedtools"
+  echo "[Skip] bedtools"
 fi
 
 if [ ! -f "$SAMPLE_NAME".alignment.log ]
 then
-  echo '[执行] 开始 alignment'
+  echo '[Running] alignment'
   ALIGNMENT_LOG_FILE="$SAMPLE_NAME".alignment.log
   echo "seqID,Input,bam,ProperBam,nodup.bam,ProperNodupBam,nodup.q30.bam,ProperNodupQ30Bam,rate1,rate2,GenomicCov,dupRate" > "$ALIGNMENT_LOG_FILE.tmp"
   alignment_input=$(( $(wc -l "$SAMPLE_NAME".1.fastq.clipper | cut -d' ' -f1) / 4 ))
@@ -155,7 +155,7 @@ fi
 
 if [ ! -f contamination/"$SAMPLE_NAME".un.100000.out ]
 then
-  echo "[执行] 污染计算"
+  echo "[Running] contamination test"
 
   ### CONTAMINATION
   samtools view -S -f 4 "$SAMPLE_NAME".bwa.raw.sam -@ "$CORES" | awk '{OFS="\t"; print ">"$1"\n"$10}' > contamination/"$SAMPLE_NAME".un.fa
@@ -167,7 +167,7 @@ reads=10000000
 
 if [ ! -f "$SAMPLE_NAME".10m."$Q30_EXT" ]
 then
-  echo '[执行] 开始 下采样到10m'
+  echo '[Running] Downsampling'
   proportion=`echo "scale=5; $reads / $alignment_nqbam" | bc`
   echo "10m : ${SAMPLE_NAME} : ${alignment_nqbam} : ${proportion}"
 
@@ -179,14 +179,14 @@ then
     && mv "$SAMPLE_NAME".10m."$Q30_EXT".tmp "$SAMPLE_NAME".10m."$Q30_EXT"
   fi
 else
-  echo "[跳过] 下采样10m"
+  echo "[Skip] .10m.nodup.q30.bam"
 fi
 
 reads=8000000
 
 if [ ! -f "$SAMPLE_NAME".8m."$Q30_EXT" ]
 then
-  echo '[执行] 开始 下采样到8m'
+  echo '[Running] Downsampling'
   proportion=`echo "scale=5; $reads / $alignment_nqbam" | bc`
   echo "8m : ${SAMPLE_NAME} : ${alignment_nqbam} : ${proportion}"
 
@@ -198,7 +198,7 @@ then
     && mv "$SAMPLE_NAME".8m."$Q30_EXT".tmp "$SAMPLE_NAME".8m."$Q30_EXT"
   fi
 else
-  echo "[跳过] 下采样8m"
+  echo "[Skip] .8m.nodup.q30.bam"
 fi
 
 wait
