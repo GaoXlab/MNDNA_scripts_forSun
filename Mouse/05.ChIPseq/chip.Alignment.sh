@@ -11,7 +11,7 @@ else
   CORES=30
 fi
 
-sample="WT_NR4A1 WT_IgG APC_NR4A1 APC_Igg"
+sample="WT_NR4A1 WT_IgG APC_NR4A1 APC_IgG"
 for SAMPLE_NAME in $sample
 do
 
