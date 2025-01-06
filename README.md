@@ -16,7 +16,8 @@ This project provides a bioinformatics analysis pipeline for preprocessing and a
     ├── 01.H460added
     ├── 02.mndna_mouse_svcmodel
     ├── 03.MS
-    └── 04.scRNAseq_process
+    ├── 04.scRNAseq_process
+    └── 05.ChIPseq_process
 ```
 
 ## 2. Preprocessing the MN-DNA WGS data
