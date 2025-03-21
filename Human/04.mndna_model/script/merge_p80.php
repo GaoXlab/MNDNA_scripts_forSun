@@ -1,6 +1,6 @@
 <?php
 $type = $argv[1];
-var_dump($type);
+
 if (empty($type)) {
     echo "type is required";
     die;

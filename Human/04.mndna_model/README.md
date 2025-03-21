@@ -38,5 +38,13 @@ You should put 10m data in the 10m directory, and the module data in the modelDa
 # 3. Classification
 ./script/step4.sh panca
 
+# multiclass pipeline
+# 1. Feature selection from 10m features
+./script/step2_mc.sh
+# 2. Feature reduction
+./script/step3_mc.sh
+# 3. Classification
+./script/step4_mc.sh
+
 ``` 
 Feature selection results will be saved in the 2_FeatureSelection directory, feature reduction results will be saved in the 3_FeatureReduction directory, and classification results will be saved in the 4_Classification directory.

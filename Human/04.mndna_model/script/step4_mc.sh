@@ -8,10 +8,8 @@ FEATURE_CLASSIFICATION_DIR=$(cd $SCRIPT_DIR/../results/4_Classification; pwd)
 
 MODEL_DATA_DIR=$(cd $SCRIPT_DIR/../modelData; pwd)
 
-TYPE=$1
-
 # make vector from ids and final whitelist
-php $SCRIPT_DIR/make_vector_mc.php "$MODEL_DATA_DIR/${TYPE}.train.ids.txt" "$MODEL_DATA_DIR/${TYPE}.test.ids.txt" manu_${TYPE}_240103 $FEATURE_REDUCTION_OUTPUT_DIR/manu_${TYPE}_240103.bed
+php $SCRIPT_DIR/make_vector_mc.php "$MODEL_DATA_DIR/mc.train.ids.txt" "$MODEL_DATA_DIR/mc.test.ids.txt" manu_mc_240103 $FEATURE_REDUCTION_OUTPUT_DIR/manu_mc_240103.bed
 # model prediction
 python $SCRIPT_DIR/train_and_test_xgbm_mc.py
 

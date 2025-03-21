@@ -87,6 +87,15 @@ if __name__ == "__main__":
     print("TOP-2 accuracy per label:")
     print(top_k_accuracy_per_label(test_y, xgbm_predict, k=2))
 
+    # shuffle test label and calculate cm again
+    print("Confusion Matrix for test set after shuffling:")
+    shuffle_test_y = test_y.copy()
+    np.random.seed(1234)
+    np.random.shuffle(shuffle_test_y,)
+    shuffled_cm = confusion_matrix(shuffle_test_y, y_pred)
+    print_cm(shuffled_cm, le)
+    print(top_k_accuracy_per_label(shuffle_test_y, xgbm_predict, k=2))
+
     # output each test sample's pred result to file './xgbm.predict_result'
     y_pred_label = le.inverse_transform(y_pred)
     y_test_label = le.inverse_transform(test_y)
@@ -102,3 +111,8 @@ if __name__ == "__main__":
         for i in range(len(xgbm_predict_prob_train)):
             file.write(f"{train_name[i]},"
                        + f"{','.join(str(value) for value in xgbm_predict_prob_train[i])},{xgbm_predict_train_label[i]}\n")
+
+    #save shuffled test label and pred prob to file
+    with open('./xgbm.predict_prob_shuffled', 'w') as file:
+        for i in range(len(shuffle_test_y)):
+            file.write(f"{test_name[i]},{','.join(str(value) for value in xgbm_predict[i])},{le.inverse_transform([shuffle_test_y[i]])[0]}\n")
