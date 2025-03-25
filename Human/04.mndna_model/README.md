@@ -45,6 +45,10 @@ You should put 10m data in the 10m directory, and the module data in the modelDa
 ./script/step3_mc.sh
 # 3. Classification
 ./script/step4_mc.sh
-
+## for the independent test set 
+cp modelData/mc.test.ids.txt{,.bak}
+cp modelData/mc.{indp,test}.ids.txt
+./script/step4_mc.sh
+mv modelData/mc.test.ids.txt{.bak,}
 ``` 
 Feature selection results will be saved in the 2_FeatureSelection directory, feature reduction results will be saved in the 3_FeatureReduction directory, and classification results will be saved in the 4_Classification directory.
