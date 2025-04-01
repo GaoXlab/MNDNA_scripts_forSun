@@ -30,7 +30,6 @@ function make_vector($ids ,$mode, $output_name, $samples, $whitelist, $pos_ids =
     file_put_contents($file_name, count($ids) . " " . count($whitelist). "\n");
     $pos_ids_dict = array_fill_keys($pos_ids, true);
     $neg_ids_dict = array_fill_keys($neg_ids, true);
-    sort($ids);
     $dict = array_fill_keys($whitelist, 1);
     $whitelist_keys = [];
     foreach ($whitelist as $wl) {
@@ -70,9 +69,6 @@ function  make_info($ids, $pos_label = [], $neg_label = []) {
 }
 
 function write_info($filename, $info) {
-    usort($info, function($a, $b) {
-        return strnatcmp($a[0], $b[0]);
-    });
     $fp = fopen($filename, 'w+');
     fputcsv($fp, [count($info)]);
     foreach ($info as $item) {
