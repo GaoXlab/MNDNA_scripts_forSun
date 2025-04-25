@@ -2,7 +2,7 @@
 
 This repository contains code from Sun et al., Cell Res (DOI: 10.1038/s41422-025-01122-7).
 
-This project provides a bioinformatics analysis pipeline for preprocessing and analyzing the rbcDNA whole-genome sequencing data. The preprocessing pipeline is implemented in shell scripts, and the subsequent analysis for human and mouse samples is organized in the `Human` and `Mouse` folders, respectively. The `Figure` folder contains the code for generating each figure in the article.
+This project provides a bioinformatics analysis pipeline for preprocessing and analyzing the DNA remnants in red blood cells (rbcDNA, also referred to as MN-DNA in some original figures or code) whole-genome sequencing data. The preprocessing pipeline is implemented in shell scripts, and the subsequent analysis for human and mouse samples is organized in the `Human` and `Mouse` folders, respectively. The `Figure` folder contains the code for generating each figure in the article.
 
 ## 1. Directory structure
 ```text
