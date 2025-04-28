@@ -50,7 +50,7 @@ addChromatinInfo <- function(annotated_bed, peak_feature, rbcDNA_med, gDNA_med){
     colnames(top_feature_region) = c('feature','chromosome','start','end')
     top_feature_region.hg38 = GRanges(top_feature_region)
     top_feature_region.hg38 = top_feature_region.hg38[subjectHits(findOverlaps(rbcDNA_fea_region.hg38, top_feature_region.hg38))]
-    top_feature_region.hg38 ### 12个样本最终剩下6653regions ### 10个样本最终剩下6567regions
+    top_feature_region.hg38 ### 10个样本最终剩下6567rows, 6566regions
 
     ### find overlaps to selected regions
     CN_smooth_r1_region = rbcDNA_med[, c('feature','chromosome','start','end')]
