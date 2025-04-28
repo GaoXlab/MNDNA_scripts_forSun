@@ -70,12 +70,12 @@ feature$width = feature$end-feature$start
 feature$sortlabel = (feature$count*feature$foldenrichment)/feature$width
 feature = feature[order(feature$sortlabel,decreasing=T), ]
 
-rbcDNA_med = HD12_60m_1000k_MN
-gDNA_med = HD12_60m_1000k_gDNA
+rbcDNA_med = HD10_60m_1000k_MN
+gDNA_med = HD10_60m_1000k_gDNA
 CN_smooth_r1_1000k <- addChromatinInfo(feature_1000kb_anno, feature, rbcDNA_med, gDNA_med)
 
-rbcDNA_med = HD12_60m_100k_MN
-gDNA_med = HD12_60m_100k_gDNA
+rbcDNA_med = HD10_60m_100k_MN
+gDNA_med = HD10_60m_100k_gDNA
 CN_smooth_r1_100k <- addChromatinInfo(feature_100kb_anno, feature, rbcDNA_med, gDNA_med)
 
 save(CN_smooth_r1_1000k, CN_smooth_r1_100k, file = 'result/HD_deep_10sample_anno.RData')

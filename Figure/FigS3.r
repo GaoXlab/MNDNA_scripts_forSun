@@ -21,7 +21,7 @@ load('../Human/02.mndna_enriched_peak_calling/result/HD_deep_10sample_anno.RData
 dir.create('FigS3')
 
 ## Figure S3, pearson correlation
-a=merge(HD12_60m_1000k_MN[,c('feature','median')], CN_smooth_r1_1000k, by.x='feature', by.y='region')
+a=merge(HD10_60m_1000k_MN[,c('feature','median')], CN_smooth_r1_1000k, by.x='feature', by.y='region')
 a=a[a$broadPeak==1, c('median','V2','overlappedGeneNumDensity')]; colnames(a) = c('MN-DNA\nread density','Chrom. size','Gene density')
 
 cor2genomic <- cor(a[,])
