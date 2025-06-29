@@ -23,9 +23,13 @@ This project provides a bioinformatics analysis pipeline for preprocessing and a
 ```
 
 ## 2. Preprocessing the rbcDNA WGS data
-The analysis pipeline for preprocessing the rbcDNA whole-genome sequencing data is `01.pipeline_preprocess.sh`.  
+The analysis pipeline for preprocessing the rbcDNA whole-genome sequencing data is `01.pipeline_preprocess.sh`. (The reference genomes for human (hg38) and mouse (mm10) used were restricted to primary chromosomes, excluding alternate contigs and unlocalized or unplaced sequences (e.g., _alt, _random, chrUn).) 
 The pipeline reads the location of the FastQ files and the output directory from environment variables, as well as the type of genome. When using the pipeline, ensure that the specified locations contain the `sample_name_1.fq.gz` and `sample_name_2.fq.gz` files.
 ```bash
+
+# ./00.build_primary_fa.sh GRCh38  # Generates GRCh38.fa
+# ./00.build_primary_fa.sh mm10    # Generates mm10.fa
+
 export SAMPLE_NAME=$SAMPLE_NAME;export SOURCE=$SOURCE_DIR;export OUTPUT_DIR=$OUTPUT_DIR;export GENOME_TYPE=$GENOME_TYPE;./01.pipeline_preprocess.sh
 
 # For human genome-wide rbcDNA distribution, related to Fig1e,f
